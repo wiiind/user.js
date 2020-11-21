@@ -733,7 +733,7 @@ user_pref("security.mixed_content.block_object_subrequest", true);
  * [SETTING] Privacy & Security>HTTPS-Only Mode
  * [1] https://bugzilla.mozilla.org/1613063 [META]
  * [2] https://bugzilla.mozilla.org/1647829 ***/
-   // user_pref("dom.security.https_only_mode", true); // [FF76+]
+   user_pref("dom.security.https_only_mode", true); // [FF76+]
    // user_pref("dom.security.https_only_mode_pbm", true); // [FF80+]
    // user_pref("dom.security.https_only_mode.upgrade_local", true); // [FF77+]
 
@@ -1633,10 +1633,10 @@ user_pref("_user.js.parrot", "5000 syntax error: this is an ex-parrot!");
    // user_pref("reader.parse-on-load.enabled", false); // Reader View
 /* OTHER ***/
    // user_pref("browser.bookmarks.max_backups", 2);
-   // user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false); // disable CFR [FF67+]
-      // [SETTING] General>Browsing>Recommend extensions as you browse
-   // user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false); // disable CFR [FF67+]
-      // [SETTING] General>Browsing>Recommend features as you browse
+   user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false); // disable CFR [FF67+]
+   // [SETTING] General>Browsing>Recommend extensions as you browse
+   user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false); // disable CFR [FF67+]
+   // [SETTING] General>Browsing>Recommend features as you browse
    // user_pref("network.manage-offline-status", false); // see bugzilla 620472
    // user_pref("xpinstall.signatures.required", false); // enforced extension signing (Nightly/ESR)
 
