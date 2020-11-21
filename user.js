@@ -93,7 +93,7 @@ user_pref("browser.shell.checkDefaultBrowser", false);
 /* 0102: set START page (0=blank, 1=home, 2=last visited page, 3=resume previous session)
  * [NOTE] Session Restore is not used in PB mode (0110) and is cleared with history (2803, 2804)
  * [SETTING] General>Startup>Restore previous session ***/
-user_pref("browser.startup.page", 0);
+user_pref("browser.startup.page", 3);
 /* 0103: set HOME+NEWWINDOW page
  * about:home=Activity Stream (default, see 0105), custom URL, about:blank
  * [SETTING] Home>New Windows and Tabs>Homepage and new windows ***/
@@ -1263,7 +1263,7 @@ user_pref("network.cookie.thirdparty.nonsecureSessionOnly", true); // [FF58+]
  * 0=keep until they expire (default), 2=keep until you close Firefox
  * [NOTE] The setting below is disabled (but not changed) if you block all cookies (2701 = 2)
  * [SETTING] Privacy & Security>Cookies and Site Data>Delete cookies and site data when Firefox is closed ***/
-   // user_pref("network.cookie.lifetimePolicy", 2);
+user_pref("network.cookie.lifetimePolicy", 2);
 /* 2710: disable DOM (Document Object Model) Storage
  * [WARNING] This will break a LOT of sites' functionality AND extensions!
  * You are better off using an extension for more granular control ***/
@@ -1307,10 +1307,11 @@ user_pref("privacy.sanitize.sanitizeOnShutdown", true);
  * [SETTING] Privacy & Security>History>Custom Settings>Clear history when Firefox closes>Settings ***/
 user_pref("privacy.clearOnShutdown.cache", true);
 user_pref("privacy.clearOnShutdown.cookies", true);
-//user_pref("privacy.clearOnShutdown.downloads", true); // see note above
+user_pref("privacy.clearOnShutdown.downloads", false); // see note above
 user_pref("privacy.clearOnShutdown.formdata", true); // Form & Search History
-//user_pref("privacy.clearOnShutdown.history", true); // Browsing & Download History
-user_pref("privacy.clearOnShutdown.offlineApps", true); // Offline Website Data
+user_pref("privacy.clearOnShutdown.history", false); // Browsing & Download History
+/* Disable clearing offlineApps as it ignores the exceptions set*/
+user_pref("privacy.clearOnShutdown.offlineApps", false); // Offline Website Data
 user_pref("privacy.clearOnShutdown.sessions", true); // Active Logins
 user_pref("privacy.clearOnShutdown.siteSettings", false); // Site Preferences
 /* 2804: reset default items to clear with Ctrl-Shift-Del (to match 2803) [SETUP-CHROME]
@@ -1320,10 +1321,10 @@ user_pref("privacy.clearOnShutdown.siteSettings", false); // Site Preferences
  * for "Clear Recent History" is opened, it is synced to the same as 'history' ***/
 user_pref("privacy.cpd.cache", true);
 user_pref("privacy.cpd.cookies", true);
-   // user_pref("privacy.cpd.downloads", true); // not used, see note above
+user_pref("privacy.cpd.downloads", false); // not used, see note above
 user_pref("privacy.cpd.formdata", true); // Form & Search History
-user_pref("privacy.cpd.history", true); // Browsing & Download History
-user_pref("privacy.cpd.offlineApps", true); // Offline Website Data
+user_pref("privacy.cpd.history", false); // Browsing & Download History
+user_pref("privacy.cpd.offlineApps", false); // Offline Website Data
 user_pref("privacy.cpd.passwords", false); // this is not listed
 user_pref("privacy.cpd.sessions", true); // Active Logins
 user_pref("privacy.cpd.siteSettings", false); // Site Preferences
