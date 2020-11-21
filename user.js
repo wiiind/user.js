@@ -446,7 +446,7 @@ user_pref("_user.js.parrot", "0800 syntax error: the parrot's ceased to be!");
  * dropdown, or using keyword search shortcuts you configure in options (e.g. 'd' for DuckDuckGo)
  * [SETUP-CHROME] If you don't, or rarely, type URLs, or you use a default search
  * engine that respects privacy, then you probably don't need this ***/
-user_pref("keyword.enabled", false);
+user_pref("keyword.enabled", true);
 /* 0802: disable location bar domain guessing
  * domain guessing intercepts DNS "hostname not found errors" and resends a
  * request (e.g. by adding www or .com). This is inconsistent use (e.g. FQDNs), does not work
@@ -600,7 +600,7 @@ user_pref("browser.sessionstore.privacy_level", 2);
  * i.e. the longer the interval the more chance a quick tab open/close won't be captured.
  * This longer interval *may* affect history but we cannot replicate any history not recorded
  * [1] https://bugzilla.mozilla.org/1304389 ***/
-user_pref("browser.sessionstore.interval", 30000);
+//user_pref("browser.sessionstore.interval", 30000);
 /* 1024: disable automatic Firefox start and session restore after reboot [FF62+] [WINDOWS]
  * [1] https://bugzilla.mozilla.org/603903 ***/
 user_pref("toolkit.winRegisterApplicationRestart", false);
@@ -829,7 +829,7 @@ user_pref("_user.js.parrot", "1600 syntax error: the parrot rests in peace!");
 /* 1603: CROSS ORIGIN: control when to send a referer
  * 0=always (default), 1=only if base domains match, 2=only if hosts match
  * [SETUP-WEB] Known to cause issues with older modems/routers and some sites e.g vimeo, icloud ***/
-user_pref("network.http.referer.XOriginPolicy", 1);
+//user_pref("network.http.referer.XOriginPolicy", 1);
 /* 1604: CROSS ORIGIN: control the amount of information to send [FF52+]
  * 0=send full URI (default), 1=scheme+host+port+path, 2=scheme+host+port ***/
 user_pref("network.http.referer.XOriginTrimmingPolicy", 0); // [DEFAULT: 0]
@@ -887,13 +887,13 @@ user_pref("plugin.state.flash", 0);
    // user_pref("media.gmp-provider.enabled", false);
 /* 1825: disable widevine CDM (Content Decryption Module)
  * [SETUP-WEB] if you *need* CDM, e.g. Netflix, Amazon Prime, Hulu, whatever ***/
-user_pref("media.gmp-widevinecdm.visible", false);
-user_pref("media.gmp-widevinecdm.enabled", false);
+//user_pref("media.gmp-widevinecdm.visible", false);
+//user_pref("media.gmp-widevinecdm.enabled", false);
 /* 1830: disable all DRM content (EME: Encryption Media Extension)
  * [SETUP-WEB] if you *need* EME, e.g. Netflix, Amazon Prime, Hulu, whatever
  * [SETTING] General>DRM Content>Play DRM-controlled content
  * [1] https://www.eff.org/deeplinks/2017/10/drms-dead-canary-how-we-just-lost-web-what-we-learned-it-and-what-we-need-do-next ***/
-user_pref("media.eme.enabled", false);
+//user_pref("media.eme.enabled", false);
 
 /*** [SECTION 2000]: MEDIA / CAMERA / MIC ***/
 user_pref("_user.js.parrot", "2000 syntax error: the parrot's snuffed it!");
@@ -916,8 +916,8 @@ user_pref("media.peerconnection.ice.proxy_only_if_behind_proxy", true); // [FF70
  * especially with readPixels(). Some of the other entropy is lessened with RFP (see 4501)
  * [1] https://www.contextis.com/resources/blog/webgl-new-dimension-browser-exploitation/
  * [2] https://security.stackexchange.com/questions/13799/is-webgl-a-security-concern ***/
-user_pref("webgl.disabled", true);
-user_pref("webgl.enable-webgl2", false);
+//user_pref("webgl.disabled", true);
+//user_pref("webgl.enable-webgl2", false);
 /* 2012: limit WebGL ***/
 user_pref("webgl.min_capability_mode", true);
 user_pref("webgl.disable-fail-if-major-performance-caveat", true);
@@ -989,7 +989,7 @@ user_pref("_user.js.parrot", "2300 syntax error: the parrot's off the twig!");
  * [SETUP-WEB] Disabling service workers will break some sites. This pref is required true for
  * service worker notifications (2304), push notifications (disabled, 2305) and service worker
  * cache (2740). If you enable this pref, then check those settings as well ***/
-user_pref("dom.serviceWorkers.enabled", false);
+//user_pref("dom.serviceWorkers.enabled", false);
 /* 2304: disable Web Notifications
  * [NOTE] Web Notifications can also use service workers (2302) and are behind a prompt (2306)
  * [1] https://developer.mozilla.org/docs/Web/API/Notifications_API ***/
@@ -1004,7 +1004,7 @@ user_pref("dom.serviceWorkers.enabled", false);
  * or on start), and you will get a new one within a few seconds.
  * [1] https://support.mozilla.org/en-US/kb/push-notifications-firefox
  * [2] https://developer.mozilla.org/en-US/docs/Web/API/Push_API ***/
-user_pref("dom.push.enabled", false);
+//user_pref("dom.push.enabled", false);
    // user_pref("dom.push.userAgentID", "");
 /* 2306: set a default permission for Notifications (both 2304 and 2305) [FF58+]
  * 0=always ask (default), 1=allow, 2=block
@@ -1197,7 +1197,7 @@ user_pref("privacy.window.name.update.enabled", true);
 /* 2651: enforce user interaction for security by always asking where to download
  * [SETUP-CHROME] On Android this blocks longtapping and saving images
  * [SETTING] General>Downloads>Always ask you where to save files ***/
-user_pref("browser.download.useDownloadDir", false);
+//user_pref("browser.download.useDownloadDir", false);
 /* 2652: disable adding downloads to the system's "recent documents" list ***/
 user_pref("browser.download.manager.addToRecentDocs", false);
 /* 2653: disable hiding mime types (Options>General>Applications) not associated with a plugin ***/
@@ -1251,7 +1251,7 @@ user_pref("_user.js.parrot", "2700 syntax error: the parrot's joined the bleedin
  * [NOTE] You can set exceptions under site permissions or use an extension
  * [NOTE] Enforcing category to custom ensures ETP related prefs are always honored
  * [SETTING] Privacy & Security>Enhanced Tracking Protection>Custom>Cookies ***/
-user_pref("network.cookie.cookieBehavior", 1);
+user_pref("network.cookie.cookieBehavior", 4);
 user_pref("browser.contentblocking.category", "custom");
 /* 2702: set third-party cookies (if enabled, see 2701) to session-only
    [NOTE] .sessionOnly overrides .nonsecureSessionOnly except when .sessionOnly=false and
@@ -1307,9 +1307,9 @@ user_pref("privacy.sanitize.sanitizeOnShutdown", true);
  * [SETTING] Privacy & Security>History>Custom Settings>Clear history when Firefox closes>Settings ***/
 user_pref("privacy.clearOnShutdown.cache", true);
 user_pref("privacy.clearOnShutdown.cookies", true);
-user_pref("privacy.clearOnShutdown.downloads", true); // see note above
+//user_pref("privacy.clearOnShutdown.downloads", true); // see note above
 user_pref("privacy.clearOnShutdown.formdata", true); // Form & Search History
-user_pref("privacy.clearOnShutdown.history", true); // Browsing & Download History
+//user_pref("privacy.clearOnShutdown.history", true); // Browsing & Download History
 user_pref("privacy.clearOnShutdown.offlineApps", true); // Offline Website Data
 user_pref("privacy.clearOnShutdown.sessions", true); // Active Logins
 user_pref("privacy.clearOnShutdown.siteSettings", false); // Site Preferences
@@ -1469,7 +1469,7 @@ user_pref("privacy.resistFingerprinting.block_mozAddonManager", true); // [HIDDE
  * [WARNING] The dimension pref is only meant for testing, and we recommend you DO NOT USE it
  * [1] https://bugzilla.mozilla.org/1407366
  * [2] https://hg.mozilla.org/mozilla-central/rev/6d2d7856e468#l2.32 ***/
-user_pref("privacy.resistFingerprinting.letterboxing", true); // [HIDDEN PREF]
+//user_pref("privacy.resistFingerprinting.letterboxing", true); // [HIDDEN PREF]
    // user_pref("privacy.resistFingerprinting.letterboxing.dimensions", ""); // [HIDDEN PREF]
 /* 4510: disable showing about:blank as soon as possible during startup [FF60+]
  * When default true this no longer masks the RFP chrome resizing activity
