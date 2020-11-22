@@ -120,6 +120,12 @@ user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false);
 user_pref("browser.newtabpage.activity-stream.section.highlights.includePocket", false);
 user_pref("browser.newtabpage.activity-stream.showSponsored", false);
 user_pref("browser.newtabpage.activity-stream.feeds.discoverystreamfeed", false); // [FF66+]
+   /*Disable extra activity stream items*/
+   user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false);
+   user_pref("browser.newtabpage.activity-stream.feeds.topsites", false);
+   user_pref("browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts", false);
+   user_pref("browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts.havePinned", "");
+   user_pref("browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts.searchEngines", "");
 /* 0105d: disable Activity Stream recent Highlights in the Library [FF57+] ***/
    // user_pref("browser.library.activity-stream.enabled", false);
 /* 0105e: clear default topsites
@@ -484,7 +490,7 @@ user_pref("browser.urlbar.dnsResolveSingleWordsAfterSearch", 0);
    // user_pref("browser.urlbar.suggest.history", false);
    // user_pref("browser.urlbar.suggest.bookmark", false);
    // user_pref("browser.urlbar.suggest.openpage", false);
-   // user_pref("browser.urlbar.suggest.topsites", false); // [FF78+]
+   user_pref("browser.urlbar.suggest.topsites", false); // [FF78+]
 /* 0850c: disable location bar dropdown
  * This value controls the total number of entries to appear in the location bar dropdown
  * [NOTE] Items (bookmarks/history/openpages) with a high "frecency"/"bonus" will always
