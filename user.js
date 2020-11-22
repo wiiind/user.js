@@ -1298,7 +1298,9 @@ user_pref("dom.storage.next_gen", true);
 user_pref("_user.js.parrot", "2800 syntax error: the parrot's bleedin' demised!");
 /* 2802: enable Firefox to clear items on shutdown (see 2803)
  * [SETTING] Privacy & Security>History>Custom Settings>Clear history when Firefox closes ***/
-user_pref("privacy.sanitize.sanitizeOnShutdown", true);
+/* Disable clearOnShutdown as it ignores the exceptions set.
+	For now, rely on 2703: lifetimePolicy=sessionOnly */
+user_pref("privacy.sanitize.sanitizeOnShutdown", false);
 /* 2803: set what items to clear on shutdown (if 2802 is true) [SETUP-CHROME]
  * [NOTE] If 'history' is true, downloads will also be cleared regardless of the value
  * but if 'history' is false, downloads can still be cleared independently
