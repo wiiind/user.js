@@ -503,6 +503,11 @@ user_pref("browser.urlbar.dnsResolveSingleWordsAfterSearch", 0);
 /* 0850d: disable location bar autofill
  * [1] https://support.mozilla.org/en-US/kb/address-bar-autocomplete-firefox#w_url-autocomplete ***/
    // user_pref("browser.urlbar.autoFill", false);
+ 
+/* 0850?: disable location bar extra click selecting alternate search engine ***/
+   user_pref("browser.urlbar.update2.localOneOffs", false);
+   user_pref("browser.urlbar.update2.oneOffsRefresh", false);
+   
 /* 0860: disable search and form history
  * [SETUP-WEB] Be aware that autocomplete form data can be read by third parties, see [1] [2]
  * [NOTE] We also clear formdata on exit (see 2803)
