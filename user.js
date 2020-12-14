@@ -1222,11 +1222,11 @@ user_pref("privacy.window.name.update.enabled", true);
 /* 2650: discourage downloading to desktop
  * 0=desktop, 1=downloads (default), 2=last used
  * [SETTING] To set your default "downloads": General>Downloads>Save files to ***/
-   // user_pref("browser.download.folderList", 2);
+   user_pref("browser.download.folderList", 2);
 /* 2651: enforce user interaction for security by always asking where to download
  * [SETUP-CHROME] On Android this blocks longtapping and saving images
  * [SETTING] General>Downloads>Always ask you where to save files ***/
-//user_pref("browser.download.useDownloadDir", false);
+user_pref("browser.download.useDownloadDir", false);
 /* 2652: disable adding downloads to the system's "recent documents" list ***/
 user_pref("browser.download.manager.addToRecentDocs", false);
 /* 2653: disable hiding mime types (Options>General>Applications) not associated with a plugin ***/
