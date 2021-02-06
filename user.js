@@ -1,7 +1,7 @@
 /******
 * name: arkenfox user.js
-* date: 17 Jan 2021
-* version 85-alpha
+* date: 01 Feb 2021
+* version 86-alpha
 * url: https://github.com/arkenfox/user.js
 * license: MIT: https://github.com/arkenfox/user.js/blob/master/LICENSE.txt
 
@@ -18,6 +18,7 @@
        * Some site breakage and unintended consequences will happen. Everyone's experience will differ
          e.g. some user data is erased on close (section 2800), change this to suit your needs
        * While not 100% definitive, search for "[SETUP" tags
+         e.g. third party images/videos not loading on some sites? check 1603
        * Take the wiki link in step 2 and read the Troubleshooting entry
   5. Some tag info
        [SETUP-SECURITY] it's one item, read it
@@ -82,8 +83,8 @@
 user_pref("_user.js.parrot", "START: Oh yes, the Norwegian Blue... what's wrong with it?");
 
 /* 0000: disable about:config warning
- * FF71-72: chrome://global/content/config.xul
- * FF73+: chrome://global/content/config.xhtml ***/
+ * FF72 or lower: chrome://global/content/config.xul
+ * FF73-86: chrome://global/content/config.xhtml ***/
 user_pref("general.warnOnAboutConfig", false); // XUL/XHTML version
 user_pref("browser.aboutConfig.showWarning", false); // HTML version [FF71+]
 
@@ -370,7 +371,7 @@ user_pref("network.dns.disablePrefetch", true);
 user_pref("network.dns.disablePrefetchFromHTTPS", true); // [DEFAULT: true]
 /* 0603: disable predictor / prefetching ***/
 user_pref("network.predictor.enabled", false);
-user_pref("network.predictor.enable-prefetch", false); // [FF48+]
+user_pref("network.predictor.enable-prefetch", false); // [FF48+] [DEFAULT: false]
 /* 0605: disable link-mouseover opening connection to linked server
  * [1] https://news.slashdot.org/story/15/08/14/2321202/how-to-quash-firefoxs-silent-requests ***/
 user_pref("network.http.speculative-parallel-limit", 0);
@@ -901,8 +902,7 @@ user_pref("plugin.state.flash", 0);
    // user_pref("media.gmp-provider.enabled", false);
 /* 1825: disable widevine CDM (Content Decryption Module)
  * [SETUP-WEB] if you *need* CDM, e.g. Netflix, Amazon Prime, Hulu, whatever ***/
-//user_pref("media.gmp-widevinecdm.visible", false);
-//user_pref("media.gmp-widevinecdm.enabled", false);
+user_pref("media.gmp-widevinecdm.enabled", false);
 /* 1830: disable all DRM content (EME: Encryption Media Extension)
  * [SETUP-WEB] if you *need* EME, e.g. Netflix, Amazon Prime, Hulu, whatever
  * [SETTING] General>DRM Content>Play DRM-controlled content
@@ -1196,7 +1196,8 @@ user_pref("browser.display.use_system_colors", false); // [DEFAULT: false]
 user_pref("permissions.delegation.enabled", false);
 /* 2624: enable "window.name" protection [FF82+]
  * If a new page from another domain is loaded into a tab, then window.name is set to an empty string. The original
- * string is restored if the tab reverts back to the original page. This change prevents some cross-site attacks ***/
+ * string is restored if the tab reverts back to the original page. This change prevents some cross-site attacks
+ * [TEST] https://arkenfox.github.io/TZP/tests/windownamea.html ***/
 user_pref("privacy.window.name.update.enabled", true); // [DEFAULT: true FF86+]
 /* 2625: disable bypassing 3rd party extension install prompts [FF82+]
  * [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1659530,1681331 ***/
@@ -1590,7 +1591,7 @@ user_pref("ui.use_standins_for_native_colors", true);
    // 0=light, 1=dark : This overrides your OS value
 user_pref("ui.systemUsesDarkTheme", 0); // [HIDDEN PREF]
 // FF80+
-// 4618: limit font visbility (non-ANDROID) [FF79+]
+// 4618: limit font visibility (non-ANDROID) [FF79+]
    // Uses hardcoded lists with two parts: kBaseFonts + kLangPackFonts [1]
    // 1=only base system fonts, 2=also fonts from optional language packs, 3=also user-installed fonts
    // [NOTE] Bundled fonts are auto-allowed
