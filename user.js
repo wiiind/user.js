@@ -498,7 +498,7 @@ user_pref("browser.urlbar.dnsResolveSingleWordsAfterSearch", 0);
    // user_pref("browser.urlbar.suggest.engines", false);
 /* 0850c: disable location bar dropdown
  * This value controls the total number of entries to appear in the location bar dropdown ***/
-   // user_pref("browser.urlbar.maxRichResults", 0);
+   user_pref("browser.urlbar.maxRichResults", 8);
 /* 0850d: disable location bar autofill
  * [1] https://support.mozilla.org/en-US/kb/address-bar-autocomplete-firefox#w_url-autocomplete ***/
    // user_pref("browser.urlbar.autoFill", false);
