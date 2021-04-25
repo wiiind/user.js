@@ -1,7 +1,7 @@
 x/******
 * name: arkenfox user.js
-* date: 06 April 2021
-* version 88-alpha
+* date: 25 April 2021
+* version 89-alpha
 * url: https://github.com/arkenfox/user.js
 * license: MIT: https://github.com/arkenfox/user.js/blob/master/LICENSE.txt
 
@@ -92,7 +92,8 @@ user_pref("_user.js.parrot", "0100 syntax error: the parrot's dead!");
 /* 0101: disable default browser check
  * [SETTING] General>Startup>Always check if Firefox is your default browser ***/
 user_pref("browser.shell.checkDefaultBrowser", false);
-/* 0102: set START page (0=blank, 1=home, 2=last visited page, 3=resume previous session)
+/* 0102: set startup page [SETUP-CHROME]
+ * 0=blank, 1=home, 2=last visited page, 3=resume previous session
  * [NOTE] Session Restore is not used in PB mode (0110) and is cleared with history (2803, 2804)
  * [SETTING] General>Startup>Restore previous session ***/
 user_pref("browser.startup.page", 3);
@@ -317,8 +318,6 @@ user_pref("browser.safebrowsing.downloads.remote.url", "");
      built-in features to Firefox, that are hidden from the about:addons UI.
      To view your System Add-ons go to about:support, they are listed under "Firefox Features"
 
-     Some System Add-ons have no on-off prefs. Instead you can manually remove them. Note that app
-     updates will restore them. They may also be updated and possibly restored automatically (see 0505)
      * Portable: "...\App\Firefox64\browser\features\" (or "App\Firefox\etc" for 32bit)
      * Windows: "...\Program Files\Mozilla\browser\features" (or "Program Files (X86)\etc" for 32bit)
      * Mac: "...\Applications\Firefox\Contents\Resources\browser\features\"
@@ -326,7 +325,7 @@ user_pref("browser.safebrowsing.downloads.remote.url", "");
      * Linux: "/usr/lib/firefox/browser/features" (or similar)
 
      [1] https://firefox-source-docs.mozilla.org/toolkit/mozapps/extensions/addon-manager/SystemAddons.html
-     [2] https://dxr.mozilla.org/mozilla-central/source/browser/extensions
+     [2] https://searchfox.org/mozilla-central/source/browser/extensions
 ***/
 user_pref("_user.js.parrot", "0500 syntax error: the parrot's cashed in 'is chips!");
 /* 0503: disable Normandy/Shield [FF60+]
@@ -1173,17 +1172,18 @@ user_pref("webchannel.allowObject.urlWhitelist", "");
  * [3] CVE-2017-5383: https://www.mozilla.org/security/advisories/mfsa2017-02/
  * [4] https://www.xudongz.com/blog/2017/idn-phishing/ ***/
 user_pref("network.IDN_show_punycode", true);
-/* 2620: enforce Firefox's built-in PDF reader [SETUP-CHROME]
+/* 2620: enforce PDFJS, disable PDFJS scripting [SETUP-CHROME]
  * This setting controls if the option "Display in Firefox" is available in the setting below
  *   and by effect controls whether PDFs are handled in-browser or externally ("Ask" or "Open With")
  * PROS: pdfjs is lightweight, open source, and as secure/vetted as any pdf reader out there (more than most)
- *   Exploits are rare (1 serious case in 4 yrs), treated seriously and patched quickly.
+ *   Exploits are rare (one serious case in seven years), treated seriously and patched quickly.
  *   It doesn't break "state separation" of browser content (by not sharing with OS, independent apps).
  *   It maintains disk avoidance and application data isolation. It's convenient. You can still save to disk.
  * CONS: You may prefer a different pdf reader for security reasons
  * CAVEAT: JS can still force a pdf to open in-browser by bundling its own code (rare)
  * [SETTING] General>Applications>Portable Document Format (PDF) ***/
 user_pref("pdfjs.disabled", false); // [DEFAULT: false]
+user_pref("pdfjs.enableScripting", false); // [FF86+]
 /* 2621: disable links launching Windows Store on Windows 8/8.1/10 [WINDOWS] ***/
 user_pref("network.protocol-handler.external.ms-windows-store", false);
 /* 2622: enforce no system colors; they can be fingerprinted
@@ -1447,7 +1447,7 @@ user_pref("privacy.firstparty.isolate", true);
    1217290 & 1409677 - enable fingerprinting resistance for WebGL (see 2010-12)
    1382545 - reduce fingerprinting in Animation API
    1354633 - limit MediaError.message to a whitelist
-   1382533 - enable fingerprinting resistance for Presentation API
+   1382533 & 1697680 - enable fingerprinting resistance for Presentation API (FF57-87)
       This blocks exposure of local IP Addresses via mDNS (Multicast DNS)
  FF58+
     967895 - spoof canvas and enable site permission prompt before allowing canvas data extraction
