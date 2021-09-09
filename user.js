@@ -675,7 +675,7 @@ user_pref("media.peerconnection.ice.proxy_only_if_behind_proxy", true); // [FF70
  * [SETTING] General>DRM Content>Play DRM-controlled content
  * [TEST] https://bitmovin.com/demos/drm
  * [1] https://www.eff.org/deeplinks/2017/10/drms-dead-canary-how-we-just-lost-web-what-we-learned-it-and-what-we-need-do-next ***/
-user_pref("media.eme.enabled", false);
+//user_pref("media.eme.enabled", false);
 /* 2030: disable autoplay of HTML5 media [FF63+]
  * 0=Allow all, 1=Block non-muted media (default), 5=Block all
  * [NOTE] You can set exceptions under site permissions
