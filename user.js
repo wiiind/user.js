@@ -413,13 +413,6 @@ user_pref("extensions.formautofill.heuristics.enabled", false); // [FF55+]
  * [5] https://lcamtuf.blogspot.com/2016/08/css-mix-blend-mode-is-bad-for-keeping.html ***/
    // user_pref("layout.css.visited_links_enabled", false);
 
-   user_pref("browser.urlbar.suggest.topsites", false); // [FF78+]
-   user_pref("browser.urlbar.maxRichResults", 9);
-   
-   /* 0850?: disable location bar extra click selecting alternate search engine ***/
-   user_pref("browser.urlbar.update2.localOneOffs", false);
-   user_pref("browser.urlbar.update2.oneOffsRefresh", false);
-   
 /*** [SECTION 0900]: PASSWORDS
 
 
@@ -1164,7 +1157,15 @@ user_pref("_user.js.parrot", "5000 syntax error: the parrot's taken 'is last bow
    // user_pref("browser.urlbar.suggest.history", false);
    // user_pref("browser.urlbar.suggest.bookmark", false);
    // user_pref("browser.urlbar.suggest.openpage", false);
-   // user_pref("browser.urlbar.suggest.topsites", false); // [FF78+]
+   user_pref("browser.urlbar.suggest.topsites", false); // [FF78+]
+   user_pref("browser.urlbar.suggest.quicksuggest", false); // [FF93+]
+   user_pref("browser.urlbar.suggest.quicksuggest.sponsored", false); // [FF93+]
+   user_pref("browser.urlbar.maxRichResults", 9);
+   
+   /* 5010a?: disable location bar extra click selecting alternate search engine ***/
+   user_pref("browser.urlbar.update2.localOneOffs", false);
+   user_pref("browser.urlbar.update2.oneOffsRefresh", false);   
+   
 /* 5011: disable location bar dropdown
  * This value controls the total number of entries to appear in the location bar dropdown ***/
    // user_pref("browser.urlbar.maxRichResults", 0);
