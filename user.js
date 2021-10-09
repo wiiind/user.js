@@ -1163,8 +1163,6 @@ user_pref("_user.js.parrot", "5000 syntax error: the parrot's taken 'is last bow
    // user_pref("browser.urlbar.suggest.bookmark", false);
    // user_pref("browser.urlbar.suggest.openpage", false);
    user_pref("browser.urlbar.suggest.topsites", false); // [FF78+]
-   user_pref("browser.urlbar.suggest.quicksuggest", false); // [FF93+]
-   user_pref("browser.urlbar.suggest.quicksuggest.sponsored", false); // [FF93+]
    user_pref("browser.urlbar.maxRichResults", 9);
    
    /* 5010a?: disable location bar extra click selecting alternate search engine ***/
