@@ -857,7 +857,7 @@ user_pref("_user.js.parrot", "2700 syntax error: the parrot's joined the bleedin
  * [NOTE] Enforcing category to custom ensures ETP related prefs are always honored
  * [SETTING] Privacy & Security>Enhanced Tracking Protection>Custom>Cookies
  * [1] https://blog.mozilla.org/security/2021/02/23/total-cookie-protection/ ***/
-user_pref("network.cookie.cookieBehavior", 4);
+user_pref("network.cookie.cookieBehavior", 5);
 user_pref("browser.contentblocking.category", "custom");
 
 /* 2710: enable Enhanced Tracking Protection (ETP) in all windows
