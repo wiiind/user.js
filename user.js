@@ -393,27 +393,15 @@ user_pref("extensions.formautofill.heuristics.enabled", false); // [FF55+]
    // user_pref("layout.css.visited_links_enabled", false);
 
 /*** [SECTION 0900]: PASSWORDS
-
-
    [1] https://support.mozilla.org/kb/use-primary-password-protect-stored-logins-and-pas
 ***/
-/*** [SECTION 0900]: PASSWORDS ***/
 user_pref("_user.js.parrot", "0900 syntax error: the parrot's expired!");
-/* 0901: disable saving passwords
- * [NOTE] This does not clear any passwords already saved
- * [SETTING] Privacy & Security>Logins and Passwords>Ask to save logins and passwords for websites ***/
-   // user_pref("signon.rememberSignons", false);
-/* 0902: use a primary password
- * There are no preferences for this. It is all handled internally.
- * [SETTING] Privacy & Security>Logins and Passwords>Use a Primary Password
- * [1] https://support.mozilla.org/kb/use-primary-password-protect-stored-logins-and-pas ***/
-/* 0903: set how often Firefox should ask for the primary password
- * 0=the first time (default), 1=every time it's needed, 2=every n minutes (see 0904) ***/
+/* 0901: set when Firefox should prompt for the primary password
+ * 0=once per session (default), 1=every time it's needed, 2=after n minutes (0902) ***/
 user_pref("security.ask_for_password", 2);
-/* 0904: set how often in minutes Firefox should ask for the primary password (see 0903)
- * in minutes, default is 30 ***/
-user_pref("security.password_lifetime", 5);
-/* 0905: disable auto-filling username & password form fields
+/* 0902: set how long in minutes Firefox should remember the primary password (0901) ***/
+user_pref("security.password_lifetime", 5); // [DEFAULT: 30]
+/* 0903: disable auto-filling username & password form fields
  * can leak in cross-site forms *and* be spoofed
  * [NOTE] Username & password is still available when you enter the field
  * [SETTING] Privacy & Security>Logins and Passwords>Autofill logins and passwords
@@ -598,7 +586,7 @@ user_pref("_user.js.parrot", "1600 syntax error: the parrot rests in peace!");
  * 0=always (default), 1=only if base domains match, 2=only if hosts match
  * [SETUP-WEB] Breakage: older modems/routers and some sites e.g banks, vimeo, icloud, instagram
  * If "2" is too strict, then override to "0" and use Smart Referer (Strict mode + add exceptions) ***/
-user_pref("network.http.referer.XOriginPolicy", 2);
+user_pref("network.http.referer.XOriginPolicy", 0);
 /* 1602: control the amount of cross-origin information to send [FF52+]
  * 0=send full URI (default), 1=scheme+host+port+path, 2=scheme+host+port ***/
 user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
@@ -777,22 +765,11 @@ user_pref("extensions.postDownloadThirdPartyPrompt", false);
 /*** [SECTION 2700]: ETP (ENHANCED TRACKING PROTECTION) ***/
 user_pref("_user.js.parrot", "2700 syntax error: the parrot's joined the bleedin' choir invisible!");
 /* 2701: enable ETP Strict Mode [FF86+]
- * 0 = Accept cookies and site data
- * 1 = (Block) All third-party cookies
- * 2 = (Block) All cookies
- * 3 = (Block) Cookies from unvisited websites
- * 4 = (Block) Cross-site tracking cookies (default)
- * 5 = (Isolate All) Cross-site cookies (TCP: Total Cookie Protection / dFPI: dynamic FPI) [1] (FF86+)
- * Option 5 with FPI enabled (4001) is ignored and not shown, and option 4 used instead
- * [NOTE] You can set cookie exceptions under site permissions or use an extension
- * [NOTE] Enforcing category to custom ensures ETP related prefs are always honored
- * [SETTING] Privacy & Security>Enhanced Tracking Protection>Custom>Cookies
- * [1] https://blog.mozilla.org/security/2021/02/23/total-cookie-protection/ ***/
-user_pref("network.cookie.cookieBehavior", 4);
-
+ * [NOTE] ETP Strict Mode enables Total Cookie Protection (TCP)
+ * [1] https://blog.mozilla.org/security/2021/02/23/total-cookie-protection/
  * [SETTING] to add site exceptions: Urlbar>ETP Shield
  * [SETTING] to manage site exceptions: Options>Privacy & Security>Enhanced Tracking Protection>Manage Exceptions ***/
-user_pref("browser.contentblocking.category", "custom");
+user_pref("browser.contentblocking.category", "strict");
 /* 2710: enable state partitioning of service workers [FF96+] ***/
 user_pref("privacy.partition.serviceWorkers", true);
 
@@ -942,7 +919,7 @@ user_pref("privacy.resistFingerprinting.block_mozAddonManager", true); // [HIDDE
  * [WARNING] DO NOT USE: the dimension pref is only meant for testing
  * [1] https://bugzilla.mozilla.org/1407366
  * [2] https://hg.mozilla.org/mozilla-central/rev/6d2d7856e468#l2.32 ***/
-//user_pref("privacy.resistFingerprinting.letterboxing", true); // [HIDDEN PREF]
+user_pref("privacy.resistFingerprinting.letterboxing", true); // [HIDDEN PREF]
    // user_pref("privacy.resistFingerprinting.letterboxing.dimensions", ""); // [HIDDEN PREF]
 /* 4505: experimental RFP [FF91+]
  * [WARNING] DO NOT USE unless testing, see [1] comment 12
@@ -1342,10 +1319,10 @@ user_pref("browser.messaging-system.whatsNewPanel.enabled", false); // What's Ne
    // user_pref("reader.parse-on-load.enabled", false); // Reader View
 /* OTHER ***/
    // user_pref("browser.bookmarks.max_backups", 2);
-   user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false); // disable CFR [FF67+]
-   // [SETTING] General>Browsing>Recommend extensions as you browse
-   user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false); // disable CFR [FF67+]
-   // [SETTING] General>Browsing>Recommend features as you browse
+user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false); // disable CFR [FF67+]
+      // [SETTING] General>Browsing>Recommend extensions as you browse
+user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false); // disable CFR [FF67+]
+      // [SETTING] General>Browsing>Recommend features as you browse
    // user_pref("network.manage-offline-status", false); // see bugzilla 620472
    // user_pref("xpinstall.signatures.required", false); // enforced extension signing (Nightly/ESR)
 
