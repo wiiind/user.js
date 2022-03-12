@@ -1,7 +1,7 @@
 ---
 name: Troubleshooting help
 about: Ask for help to solve problems with user.js
-title: ''
+title: 'follow instructions or this will be closed as invalid'
 labels: ''
 assignees: ''
 
@@ -9,7 +9,7 @@ assignees: ''
 
 <!--
 
-Issues will be closed as invalid if you do not troubleshoot first, or if you ignore the steps in the template.
+Issues will be closed as invalid if you do not troubleshoot first, or if you ignore the required info in the template.
 
 We do not support forks or no-longer supported releases.
 
@@ -20,7 +20,7 @@ We do not support forks or no-longer supported releases.
 - [ ] I have read the troubleshooting guide, done the checks and confirmed this is caused by arkenfox
    - _unchecked issues ~~may~~ will be closed as invalid_
 
-🟪 INFO
+🟪 REQUIRED INFO
   - Browser version & OS:
   - Steps to Reproduce (STR):
   - Expected result:
