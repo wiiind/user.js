@@ -3,7 +3,7 @@
   - removed from the arkenfox user.js
   - deprecated by Mozilla but listed in the arkenfox user.js in the past
 
-  Last updated: 27-January-2023
+  Last updated: 11-July-2023
 
   Instructions:
   - [optional] close Firefox and backup your profile
@@ -32,8 +32,12 @@
 
   const aPREFS = [
     /* DEPRECATED */
-    /* 103+ */
+    /* 103-115 */
+    'browser.cache.offline.enable', // 115
+    'extensions.formautofill.heuristics.enabled', // 114
     'network.cookie.lifetimePolicy', // 103 [technically removed in 104]
+    'privacy.clearsitedata.cache.enabled', // 114
+    'privacy.resistFingerprinting.testGranularityMask', // 114
     'security.pki.sha1_enforcement_level', // 103
     /* 92-102 */
     'browser.urlbar.suggest.quicksuggest', // 95
