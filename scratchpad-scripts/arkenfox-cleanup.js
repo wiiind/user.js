@@ -3,7 +3,7 @@
   - removed from the arkenfox user.js
   - deprecated by Mozilla but listed in the arkenfox user.js in the past
 
-  Last updated: 20-July-2023
+  Last updated: 26-August-2023
 
   Instructions:
   - [optional] close Firefox and backup your profile
@@ -241,6 +241,9 @@
     'toolkit.telemetry.unifiedIsOptIn',
 
     /* REMOVED */
+    /* 116+ */
+    'media.gmp-widevinecdm.enabled',
+    'network.protocol-handler.external.ms-windows-store',
     /* 103-115 */
     'beacon.enabled',
     'browser.startup.blankWindow',
